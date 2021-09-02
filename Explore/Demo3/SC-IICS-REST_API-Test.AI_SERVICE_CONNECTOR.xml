@@ -3,6 +3,7 @@
    <types1:Item>
       <types1:EntryId>HJxiggor3rp3yD7-gt-5521548-2020-04-06T18:45:06.853Z::svc.xml</types1:EntryId>
       <types1:Name>SC-IICS-REST_API-Test-2</types1:Name>
+      <types1:ParentFlowIds>dzsvE3C7snSDg8S-gt-14503888-2020-04-06T18:45:07.106Z::conn.xml</types1:ParentFlowIds>
       <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
       <types1:Description/>
       <types1:AppliesTo/>
@@ -13,7 +14,10 @@
       <types1:CreatedBy>anchoudhury@informatica.com</types1:CreatedBy>
       <types1:CreationDate>2020-04-06T18:45:07Z</types1:CreationDate>
       <types1:ModifiedBy/>
-      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>anchoudhury@informatica.com</types1:PublishedBy>
+      <types1:PublicationDate>2021-09-02T16:36:09Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/SC_IICS_REST_API_Test_2/SC_IICS_REST_API_Test_2_svcDef.xml</types1:PublishedContributionId>
       <types1:AutosaveExists>false</types1:AutosaveExists>
       <types1:Entry>
          <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
@@ -892,5 +896,5 @@
       <types1:GUID>bIobAMxVxCti2P0NcXdUQ6</types1:GUID>
       <types1:DisplayName>SC-IICS-REST_API-Test</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2021-09-02T16:25:53.667Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2021-09-02T16:38:43.109Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>

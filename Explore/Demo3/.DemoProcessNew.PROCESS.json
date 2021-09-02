@@ -30,7 +30,7 @@
       "path": "/Explore/Demo3",
       "metadata": {
          "additionalInfo": {
-            "contentType": null,
+            "contentType": "application/json; charset=utf-8",
             "description": "",
             "documentState": "VALID"
          },
