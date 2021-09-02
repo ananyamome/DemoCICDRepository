@@ -1,0 +1,48 @@
+[
+   {
+      "objectGuid": "0nbSffxzhMEltmaHHRxNof",
+      "objectName": "CN-IICS-REST-API-test",
+      "objectType": "AI_CONNECTION",
+      "path": "/Explore/Demo3",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": null,
+            "description": "",
+            "documentState": "VALID"
+         },
+         "contextAttributes": null,
+         "modelVersion": {
+            "major": 1,
+            "minor": 0
+         },
+         "objectRefs": [
+            "bIobAMxVxCti2P0NcXdUQ6"
+         ],
+         "repoInfo": {
+            "repoHandle": "dzsvE3C7snSDg8S-gt-14503888-2020-04-06T18:45:07.106Z::conn.xml"
+         }
+      }
+   },
+   {
+      "objectGuid": "bIobAMxVxCti2P0NcXdUQ6",
+      "objectName": "SC-IICS-REST_API-Test",
+      "objectType": "AI_SERVICE_CONNECTOR",
+      "path": "/Explore/Demo3",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": null,
+            "description": "",
+            "documentState": "VALID"
+         },
+         "contextAttributes": null,
+         "modelVersion": {
+            "major": 1,
+            "minor": 0
+         },
+         "objectRefs": [],
+         "repoInfo": {
+            "repoHandle": "HJxiggor3rp3yD7-gt-5521548-2020-04-06T18:45:06.853Z::svc.xml"
+         }
+      }
+   }
+]
