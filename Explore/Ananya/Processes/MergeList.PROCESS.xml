@@ -1,0 +1,342 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>MMnGbciZBpDUQbg-gt-732061-2020-04-16T10:15:00.762Z::pd.xml</types1:EntryId>
+      <types1:Name>MergeList</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.anonymous</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>anchoudhury@informatica.com</types1:CreatedBy>
+      <types1:CreationDate>2020-04-16T10:15:01Z</types1:CreationDate>
+      <types1:ModifiedBy>anchoudhury@informatica.com</types1:ModifiedBy>
+      <types1:ModificationDate>2020-05-06T19:44:23Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>anchoudhury@informatica.com</types1:PublishedBy>
+      <types1:PublicationDate>2020-05-06T19:44:29Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.MergeList/MergeList.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="MergeList"
+                  name="MergeList"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description/>
+            <tags>.anonymous</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="in_masterList" type="objectlist">
+                  <options>
+                     <option name="referenceTo">$po:StudentDataPO</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">bEsjJQQ3BKofgYnQbTD8o8</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="in_secondaryList" type="objectlist">
+                  <options>
+                     <option name="referenceTo">$po:StudentDataPO</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">bEsjJQQ3BKofgYnQbTD8o8</option>
+                  </options>
+               </parameter>
+            </input>
+            <output>
+               <field description="" name="out_MergeList" type="objectlist">
+                  <options>
+                     <option name="referenceTo">$po:StudentDataPO</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">bEsjJQQ3BKofgYnQbTD8o8</option>
+                  </options>
+               </field>
+               <field description="" name="mergedStudentDataPOList1" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </output>
+            <tempFields>
+               <field description="" name="masterStudentPOList" type="objectlist">
+                  <options>
+                     <option name="referenceTo">$po:StudentDataPO</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">bEsjJQQ3BKofgYnQbTD8o8</option>
+                  </options>
+               </field>
+               <field description="" name="masterStudentPO" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:StudentDataPO</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">bEsjJQQ3BKofgYnQbTD8o8</option>
+                  </options>
+               </field>
+               <field description="" name="secondaryStudentPOList" type="objectlist">
+                  <options>
+                     <option name="referenceTo">$po:StudentDataPO</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">bEsjJQQ3BKofgYnQbTD8o8</option>
+                  </options>
+               </field>
+               <field description="" name="secondaryStudentPO" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:StudentDataPO</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">bEsjJQQ3BKofgYnQbTD8o8</option>
+                  </options>
+               </field>
+               <field description="" name="mergedStudentDataPOList" type="objectlist">
+                  <options>
+                     <option name="referenceTo">$po:StudentDataPO</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">bEsjJQQ3BKofgYnQbTD8o8</option>
+                  </options>
+               </field>
+               <field description="" name="UniqueSecondaryList" type="objectlist">
+                  <options>
+                     <option name="referenceTo">$po:StudentDataPO</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">bEsjJQQ3BKofgYnQbTD8o8</option>
+                  </options>
+               </field>
+               <field description="" name="tempList" type="objectlist">
+                  <options>
+                     <option name="referenceTo">$po:StudentDataPO</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">bEsjJQQ3BKofgYnQbTD8o8</option>
+                  </options>
+               </field>
+               <field description="" name="decisionVar" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">0</option>
+                  </options>
+               </field>
+               <field description="" name="tempMergedList" type="objectlist">
+                  <options>
+                     <option name="referenceTo">$po:StudentDataPO</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">bEsjJQQ3BKofgYnQbTD8o8</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowAnonymousAccess/>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="k9bh2vl9" targetId="k9bh2vl8"/>
+               </start>
+               <assignment id="k9bh2vl8">
+                  <title>Assignment to masterStudentPOList, secondaryStudentPOList etc.</title>
+                  <operation source="field" to="temp.masterStudentPOList">input.in_masterList</operation>
+                  <operation source="field" to="temp.secondaryStudentPOList">input.in_secondaryList</operation>
+                  <operation source="formula" to="temp.tempMergedList">
+                     <function name="list:append">
+                        <arg name="dest_field">{$temp.tempMergedList}</arg>
+                        <arg name="new_field">{$temp.masterStudentPOList}</arg>
+                     </function>
+                  </operation>
+                  <link id="k9bh2vmh" targetId="k9bh2vmg"/>
+               </assignment>
+               <assignment id="k9bh2vmg">
+                  <title>Assignment to tempMergedList, mergedStudentDataPOList etc.</title>
+                  <operation source="formula" to="temp.tempMergedList">
+                     <function name="list:append">
+                        <arg name="dest_field">{$temp.tempMergedList}</arg>
+                        <arg name="new_field">{$temp.secondaryStudentPOList}</arg>
+                     </function>
+                  </operation>
+                  <operation source="formula" to="temp.mergedStudentDataPOList">
+                     <expression language="XQuery">for $x in fn:distinct-values($temp.tempMergedList/emplid/text() )
+return
+($temp.tempMergedList [emplid=$x])[1]
+                     </expression>
+                  </operation>
+                  <operation source="field" to="output.out_MergeList">temp.mergedStudentDataPOList</operation>
+                  <link id="k9bh2vmi" targetId="k93qm4bc"/>
+               </assignment>
+               <container id="k93qm4bc" type="exclusive">
+                  <title>decisionVar</title>
+                  <flow id="k93qm4bg">
+                     <assignment id="k9bh2vky">
+                        <title>Build masterStudentPO List 1item</title>
+                        <operation source="formula" to="temp.masterStudentPO">
+                           <expression language="XQuery">&lt;studentData&gt;
+         &lt;emplid&gt;0000676568&lt;/emplid&gt;
+         &lt;campusid&gt;9037895555&lt;/campusid&gt;
+         &lt;ferpaAttributes-name&gt;true&lt;/ferpaAttributes-name&gt;
+         &lt;ferpaAttributes-email&gt;true&lt;/ferpaAttributes-email&gt;
+         &lt;enrollmentStatusCode&gt;ELIG&lt;/enrollmentStatusCode&gt;
+         &lt;termCode&gt;1204&lt;/termCode&gt;
+&lt;/studentData&gt;
+</expression>
+                        </operation>
+                        <operation source="field" to="temp.masterStudentPOList">temp.masterStudentPO</operation>
+                        <link id="k9bh2vkz" targetId="k9bh2vkm"/>
+                     </assignment>
+                     <assignment id="k9bh2vkm">
+                        <title>Build masterStudentPO List 2item, mergedStudentList master item</title>
+                        <operation source="formula" to="temp.masterStudentPO">
+                           <expression language="XQuery">&lt;studentData&gt;
+         &lt;emplid&gt;0003962789&lt;/emplid&gt;
+         &lt;campusid&gt;9030267042&lt;/campusid&gt;
+         &lt;ferpaAttributes-name&gt;false&lt;/ferpaAttributes-name&gt;
+         &lt;ferpaAttributes-email&gt;false&lt;/ferpaAttributes-email&gt;
+         &lt;enrollmentStatusCode&gt;ELIG&lt;/enrollmentStatusCode&gt;
+         &lt;termCode&gt;1212&lt;/termCode&gt;
+      &lt;/studentData&gt;
+</expression>
+                        </operation>
+                        <operation source="formula" to="temp.masterStudentPOList">
+                           <function name="list:append">
+                              <arg name="dest_field">{$temp.masterStudentPOList}</arg>
+                              <arg name="new_field">{$temp.masterStudentPO}</arg>
+                           </function>
+                        </operation>
+                        <operation source="formula" to="temp.mergedStudentDataPOList">
+                           <function name="list:append">
+                              <arg name="dest_field">{$temp.mergedStudentDataPOList}</arg>
+                              <arg name="new_field">{$temp.masterStudentPOList}</arg>
+                           </function>
+                        </operation>
+                        <link id="k9bh2vkn" targetId="k9bh2vkc"/>
+                     </assignment>
+                     <assignment id="k9bh2vkc">
+                        <title>Build secondaryStudentPO List 1item</title>
+                        <operation source="formula" to="temp.secondaryStudentPO">
+                           <expression language="XQuery">&lt;studentData&gt;
+         &lt;emplid&gt;0000676568&lt;/emplid&gt;
+         &lt;campusid&gt;9037895555&lt;/campusid&gt;
+         &lt;ferpaAttributes-name&gt;true&lt;/ferpaAttributes-name&gt;
+         &lt;ferpaAttributes-email&gt;true&lt;/ferpaAttributes-email&gt;
+         &lt;enrollmentStatusCode&gt;ELIG&lt;/enrollmentStatusCode&gt;
+         &lt;termCode&gt;1212&lt;/termCode&gt;
+      &lt;/studentData&gt;
+</expression>
+                        </operation>
+                        <operation source="formula" to="temp.secondaryStudentPOList">
+                           <function name="list:append">
+                              <arg name="dest_field">{$temp.secondaryStudentPOList}</arg>
+                              <arg name="new_field">{$temp.secondaryStudentPO}</arg>
+                           </function>
+                        </operation>
+                        <link id="k9bh2vkd" targetId="k9bh2vk2"/>
+                     </assignment>
+                     <assignment id="k9bh2vk2">
+                        <title>Build secondaryStudentPO List 1item,tempStudentList 2item</title>
+                        <operation source="formula" to="temp.secondaryStudentPO">
+                           <expression language="XQuery">&lt;studentData&gt;
+         &lt;emplid&gt;0005308284&lt;/emplid&gt;
+         &lt;campusid&gt;9071470950&lt;/campusid&gt;
+         &lt;ferpaAttributes-name&gt;false&lt;/ferpaAttributes-name&gt;
+         &lt;ferpaAttributes-email&gt;false&lt;/ferpaAttributes-email&gt;
+         &lt;enrollmentStatusCode&gt;ELIG&lt;/enrollmentStatusCode&gt;
+         &lt;termCode&gt;1212&lt;/termCode&gt;
+      &lt;/studentData&gt;
+</expression>
+                        </operation>
+                        <operation source="formula" to="temp.secondaryStudentPOList">
+                           <function name="list:append">
+                              <arg name="dest_field">{$temp.secondaryStudentPOList}</arg>
+                              <arg name="new_field">{$temp.secondaryStudentPO}</arg>
+                           </function>
+                        </operation>
+                        <link id="k9bh2vk3" targetId="k93qm4bv"/>
+                     </assignment>
+                     <assignment id="k93qm4bv">
+                        <title>DistinctFuncNotUsed</title>
+                        <operation source="formula" to="temp.tempList">
+                           <expression language="XQuery">let $mainList :=$output.mergedStudentDataPOList1  
+return
+
+
+for $row in fn:distinct-values($mainList//emplid)
+return &lt;result&gt;{
+
+&lt;StudentDataPO&gt;
+   &lt;emplid&gt;{fn:distinct-values($mainList[emplid = $row]/emplid)}&lt;/emplid&gt;
+   &lt;campusid&gt;{fn:distinct-values($mainList[emplid = $row]/campusid)}&lt;/campusid&gt;
+   &lt;ferpaAttributes-name&gt;{fn:distinct-values($mainList[emplid = $row]/ferpaAttributes-name)}&lt;/ferpaAttributes-name&gt;
+   &lt;ferpaAttributes-email&gt;{fn:distinct-values($mainList[emplid = $row]/ferpaAttributes-email)}&lt;/ferpaAttributes-email&gt;
+   &lt;enrollmentStatusCode&gt;{fn:distinct-values($mainList[emplid = $row]/enrollmentStatusCode)}&lt;/enrollmentStatusCode&gt;
+   &lt;termCode&gt;{fn:distinct-values($mainList[emplid = $row]/termCode)}&lt;/termCode&gt;   
+&lt;/StudentDataPO&gt;
+}&lt;/result&gt;</expression>
+                        </operation>
+                        <link id="k9bh2vn6" targetId="k9bh2vn5"/>
+                     </assignment>
+                     <assignment id="k9bh2vn5">
+                        <title>Set unique mergedStudentDataPOList</title>
+                        <operation source="formula" to="temp.UniqueSecondaryList">
+                           <expression language="XQuery">let $mList :=$temp.masterStudentPOList 
+let $sList := $temp.secondaryStudentPOList 
+
+for $rowS at $pos in $sList,$rowM in $mList
+where 
+$rowS/emplid=$rowM/emplid
+let $oList := list:tail($sList)
+return
+
+$oList
+
+    </expression>
+                        </operation>
+                        <operation source="formula" to="temp.mergedStudentDataPOList">
+                           <function name="list:append">
+                              <arg name="dest_field">{$temp.mergedStudentDataPOList}</arg>
+                              <arg name="new_field">{$temp.UniqueSecondaryList}</arg>
+                           </function>
+                        </operation>
+                     </assignment>
+                     <link id="k93qm4bh" targetId="k93qm4bc" type="containerLink"/>
+                  </flow>
+                  <flow id="k93qm4bj">
+                     <link id="k93qm4bk" targetId="k93qm4bc" type="containerLink"/>
+                  </flow>
+                  <link id="k93qm4bf" targetId="k93qm4bg" type="containerLink">
+                     <condition source="formula">
+                        <function name="equals">
+                           <arg name="left">{$temp.decisionVar}</arg>
+                           <arg name="right">{2}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="k93qm4bi" targetId="k93qm4bj" type="containerLink"/>
+                  <link id="k9bh2vn4" targetId="c"/>
+               </container>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>7Du3HWRBqoKj5pn9sc3oic</types1:GUID>
+      <types1:DisplayName>MergeList</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-09-03T12:31:44.377Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
