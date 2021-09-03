@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "7Du3HWRBqoKj5pn9sc3oic",
+    "name" : "MergeList",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "MMnGbciZBpDUQbg-gt-732061-2020-04-16T10:15:00.762Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "bEsjJQQ3BKofgYnQbTD8o8",
+    "name" : "StudentDataPO",
+    "type" : "PROCESS_OBJECT",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "nP31abck0Kn7wpo-gt-609929-2020-04-16T10:13:48.216Z::po.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Ananya/Process Objects"
+  } ]
+}
