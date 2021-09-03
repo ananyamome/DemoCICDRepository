@@ -1,0 +1,105 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>1jlMfVMTonQYWeI-gt-17632057-2020-06-16T07:43:44.849Z::pd.xml</types1:EntryId>
+      <types1:Name>testDate</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.anonymous</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>anchoudhury@informatica.com</types1:CreatedBy>
+      <types1:CreationDate>2020-06-16T07:43:45Z</types1:CreationDate>
+      <types1:ModifiedBy>anchoudhury@informatica.com</types1:ModifiedBy>
+      <types1:ModificationDate>2020-07-01T11:19:10Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>anchoudhury@informatica.com</types1:PublishedBy>
+      <types1:PublicationDate>2020-07-01T11:19:16Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.testDate/testDate.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="testDate"
+                  name="testDate"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description/>
+            <tags>.anonymous</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <output>
+               <field description="" name="out_date" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="epochTime" type="int">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="hmac_sha256_key" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </output>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowAnonymousAccess/>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="kbhmd5n5" targetId="kbhmd5n4"/>
+               </start>
+               <assignment id="kbhmd5n4">
+                  <title>Assignment to out_date, epochTime etc.</title>
+                  <operation source="formula" to="output.out_date">
+                     <expression language="XQuery">let $previousDate :=xs:date(current-date()-xs:dayTimeDuration('P1D'))
+
+let $month:=fn:month-from-date($previousDate)
+
+(:let $formattedMonth := if(fn:string-length($month)=1) then
+fn:concat('0', $month)
+else
+$month:)
+
+let $day:=fn:day-from-date($previousDate)
+(:let $formattedDay := if(fn:string-length($day)=1) then
+fn:concat('0', $day)
+else
+$day
+:)
+
+let $year:= fn:year-from-date($previousDate)
+
+(: let $formattedPreviousDay :=fn:concat($month, $day,$year)  :)
+
+let $formattedPreviousDay :=if(fn:string-length(fn:string($month))=1)then
+fn:concat('0',$month)
+else
+$month
+
+return $formattedPreviousDay</expression>
+                  </operation>
+                  <operation source="formula" to="output.epochTime">
+                     <expression language="XQuery">(fn:current-dateTime() - xs:dateTime("1970-01-01T00:00:00-00:00")) div xs:dayTimeDuration("PT1S")</expression>
+                  </operation>
+                  <operation source="formula" to="output.hmac_sha256_key">
+                     <expression language="XQuery">dsig:hmacSHA256signature('TwitchDemoTwitchTest12341593601110', 'zVB/+oOLWFYFnhFO16LeeRveNzXaB9wvlgLhHMF5lEHca8GZ3UomYyUx865FNGte','Hex')</expression>
+                  </operation>
+                  <link id="kbhmd5n6" targetId="c"/>
+               </assignment>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>8lhpmjIsCLIidGLHKxLYCW</types1:GUID>
+      <types1:DisplayName>testDate</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-09-03T14:38:06.463Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
