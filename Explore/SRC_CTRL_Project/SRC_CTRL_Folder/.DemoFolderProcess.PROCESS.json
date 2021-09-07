@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "9Bek5txC77Ukc9klxulWS1",
+    "name" : "DemoFolderProcess",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "n6aabbfZk9EW4AR-gt-80251491-2021-09-07T16:11:11.222Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}
