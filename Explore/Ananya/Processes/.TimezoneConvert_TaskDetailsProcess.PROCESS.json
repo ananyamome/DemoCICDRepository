@@ -1,0 +1,64 @@
+{
+  "objectInfo" : {
+    "id" : "521yqN3akdQb2weYI2bzAe",
+    "name" : "TimezoneConvert_TaskDetailsProcess",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "G9JFi8RVf4VQT53-gt-3432277-2020-07-17T19:42:32.519Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "i8oJ6gJd04TigCxqLElKeN",
+    "name" : "TaskDetailPO",
+    "type" : "PROCESS_OBJECT",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "B69eE1KoJBUhtyc-gt-3431108-2020-07-17T19:41:32.446Z::po.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Ananya/Process Objects"
+  }, {
+    "id" : "2IS5Rxm50KxduBpqOwrfiO",
+    "name" : "CN-IICS-REST-API",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "LruB3uopz4KhPVE-gt-1107118-2020-07-17T20:41:48.602Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Ananya/Connections"
+  } ]
+}

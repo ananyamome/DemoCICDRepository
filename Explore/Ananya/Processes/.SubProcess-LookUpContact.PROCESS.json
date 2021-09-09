@@ -1,0 +1,84 @@
+{
+  "objectInfo" : {
+    "id" : "f5vdP04H88wj1dlmQGqAq3",
+    "name" : "SubProcess-LookUpContact",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "gbdutaaabbgdoGs-gt-7961076-2019-11-07T20:25:12.101Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "ayFsfVL6PKrgIPd3QPUtWl",
+    "name" : "ID-PO",
+    "type" : "PROCESS_OBJECT",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "YOuVGTiPZx1Xmga-gt-3040897-2019-11-07T19:50:40.822Z::po.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Ananya/Process Objects"
+  }, {
+    "id" : "a4GJYT4eq97emON2YTAR6b",
+    "name" : "CN-POC-Salesforce",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "CNYcmYsGuDoWn2s-gt-1338320-2019-10-31T09:37:53.454Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Demo"
+  }, {
+    "id" : "5rwv10CwQ8Yi9cPKQlG0Km",
+    "name" : "POC-ContactPO",
+    "type" : "PROCESS_OBJECT",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "wtycotFgpKi9zhF-gt-2958733-2019-11-07T15:50:01.836Z::po.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Ananya/Process Objects"
+  } ]
+}

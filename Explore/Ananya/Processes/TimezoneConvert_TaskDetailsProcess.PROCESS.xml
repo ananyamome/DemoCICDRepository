@@ -1,0 +1,194 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>G9JFi8RVf4VQT53-gt-3432277-2020-07-17T19:42:32.519Z::pd.xml</types1:EntryId>
+      <types1:Name>TimezoneConvert_TaskDetailsProcess</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.anonymous</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>anchoudhury@informatica.com</types1:CreatedBy>
+      <types1:CreationDate>2020-07-17T19:42:33Z</types1:CreationDate>
+      <types1:ModifiedBy>anchoudhury@informatica.com</types1:ModifiedBy>
+      <types1:ModificationDate>2020-09-28T06:51:36Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>anchoudhury@informatica.com</types1:PublishedBy>
+      <types1:PublicationDate>2020-09-28T06:51:41Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.TimezoneConvert_TaskDetailsProcess/TimezoneConvert_TaskDetailsProcess.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="TimezoneConvert_TaskDetailsProcess"
+                  name="TimezoneConvert_TaskDetailsProcess"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description/>
+            <tags>.anonymous</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <output>
+               <field description="" name="Out_TaskDetailPOList" type="objectlist">
+                  <options>
+                     <option name="referenceTo">$po:TaskDetailPO</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">i8oJ6gJd04TigCxqLElKeN</option>
+                  </options>
+               </field>
+            </output>
+            <tempFields>
+               <field description="" name="currenttime" type="datetime">
+                  <options>
+                     <option name="thirtyMinutesIncrement">true</option>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description=""
+                      name="SimplifiedActivityMonitorResponse"
+                      type="reference">
+                  <options>
+                     <option name="referenceTo">$po:$any</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+               <field description="" name="UTC_ESTTime" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="UTC_PSTTime" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="UTC_PSTTime_DateTime" type="datetime">
+                  <options>
+                     <option name="thirtyMinutesIncrement">true</option>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="formattedPSTTime" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowAnonymousAccess/>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="kcqmovej" targetId="kcqmovei"/>
+               </start>
+               <service id="kcqmovei">
+                  <title>Login</title>
+                  <serviceName>CN-IICS-REST-API:Login</serviceName>
+                  <serviceGUID>2IS5Rxm50KxduBpqOwrfiO</serviceGUID>
+                  <serviceInput/>
+                  <link id="kcqmoveq" targetId="kcqmovep"/>
+               </service>
+               <service id="kcqmovep">
+                  <title>ActivityMonitor</title>
+                  <serviceName>CN-IICS-REST-API:ActivityMonitor</serviceName>
+                  <serviceGUID>2IS5Rxm50KxduBpqOwrfiO</serviceGUID>
+                  <serviceInput>
+                     <parameter name="icSessionId" source="field" updatable="true">output.icSessionId</parameter>
+                     <parameter name="serverUrl" source="field" updatable="true">output.serverUrl</parameter>
+                  </serviceInput>
+                  <link id="kcqmovf1" targetId="kcqmovf0"/>
+               </service>
+               <service id="kcqmovf7">
+                  <title>Logout</title>
+                  <serviceName>CN-IICS-REST-API:Logout</serviceName>
+                  <serviceGUID>2IS5Rxm50KxduBpqOwrfiO</serviceGUID>
+                  <serviceInput>
+                     <parameter name="serverURL" source="field" updatable="true">output.serverUrl</parameter>
+                     <parameter name="icSessionId" source="field" updatable="true">output.icSessionId</parameter>
+                  </serviceInput>
+                  <link id="kcqmovf9" targetId="c"/>
+               </service>
+               <assignment id="kcqmovf0">
+                  <title>Assignment to SimplifiedActivityMonitorResponse, Out_TaskDetailPOList etc.</title>
+                  <operation source="formula" to="temp.SimplifiedActivityMonitorResponse">
+                     <expression language="XQuery">let $response :=$output.ActivityMonitoryEntry 
+
+return
+util:simplifyXml(&lt;root&gt;
+{$response}
+&lt;/root&gt;)</expression>
+                  </operation>
+                  <operation source="formula" to="output.Out_TaskDetailPOList">
+                     <expression language="XQuery">for $row in $output.ActivityMonitoryEntry   
+
+return
+
+&lt;TaskDetailPO&gt;
+   &lt;TaskName&gt;{$row/TaskName/text()}&lt;/TaskName&gt;
+   &lt;HoursRunning&gt;&lt;/HoursRunning&gt;
+&lt;/TaskDetailPO&gt;
+</expression>
+                  </operation>
+                  <operation source="formula" to="temp.currenttime">
+                     <expression language="XQuery">fn:replace((fn:substring-before(fn:string(fn:current-dateTime()), '.')), 'T', ' ')</expression>
+                  </operation>
+                  <operation source="formula" to="temp.UTC_ESTTime">
+                     <expression language="XQuery">(: fn:current-dateTime() function always return current time in UTC . Below funtion will convert it to UTC to EST . This function can convert datetime From UTC to any other time zone :)
+
+util:format(fn:string(fn:current-dateTime())  ,"yyyy-MM-dd'T'HH:mm:ss.SSSZ","America/New_York", 'us')</expression>
+                  </operation>
+                  <operation source="formula" to="temp.UTC_PSTTime">
+                     <expression language="XQuery">(: fn:current-dateTime() function always return current time in UTC . Below funtion will convert it to UTC to EST . This function can convert datetime From UTC to any other time zone :)
+
+util:format(fn:string(fn:current-dateTime())  ,"yyyy-MM-dd HH:mm:ss","America/Los_Angeles", 'us')</expression>
+                  </operation>
+                  <operation source="formula" to="temp.UTC_PSTTime_DateTime">
+                     <expression language="XQuery">let $pstDate:=xs:date(fn:substring-before(util:format(fn:string(fn:current-dateTime())  ,"yyyy-MM-dd'T'HH:mm:ss","America/Los_Angeles", 'us'), 'T'))
+
+let $currentDate :=xs:date($pstDate -xs:dayTimeDuration('P3D'))
+
+return $currentDate</expression>
+                  </operation>
+                  <operation source="formula" to="temp.formattedPSTTime">
+                     <expression language="XQuery">let $pstDate:=xs:date(fn:substring-before(util:format(fn:string(fn:current-dateTime())  ,"yyyy-MM-dd'T'HH:mm:ss","America/Los_Angeles", 'us'), 'T'))
+
+let $currentDate :=xs:date($pstDate -xs:dayTimeDuration('P3D'))
+
+let $month:=fn:month-from-date($currentDate)
+
+let $formattedMonth := if(fn:string-length(fn:string($month))=1)then
+fn:concat('0',$month)
+else
+$month
+
+let $day:=fn:day-from-date($currentDate)
+let $formattedDay := if(fn:string-length(fn:string($day))=1)then
+fn:concat('0',$day)
+else
+$day
+
+
+let $year:= fn:year-from-date($currentDate)
+
+let $formattedCurrentDay :=fn:concat($year,'-',$formattedMonth, '-', $formattedDay, 'T23:59:59Z')
+
+return $formattedCurrentDay</expression>
+                  </operation>
+                  <link id="kcqmovf8" targetId="kcqmovf7"/>
+               </assignment>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>521yqN3akdQb2weYI2bzAe</types1:GUID>
+      <types1:DisplayName>TimezoneConvert_TaskDetailsProcess</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-09-09T12:15:56.607Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

@@ -1,0 +1,277 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>SJhtghGZ5i4rswV-gt-14286662-2020-05-04T16:16:11.718Z::gt.xml</types1:EntryId>
+      <types1:Name>DbTableApprovalGuide</types1:Name>
+      <types1:MimeType>application/xml+screenflow</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>anchoudhury@informatica.com</types1:CreatedBy>
+      <types1:CreationDate>2020-05-04T16:16:12Z</types1:CreationDate>
+      <types1:ModifiedBy>anchoudhury@informatica.com</types1:ModifiedBy>
+      <types1:ModificationDate>2020-05-04T19:05:03Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>anchoudhury@informatica.com</types1:PublishedBy>
+      <types1:PublicationDate>2020-05-04T19:05:08Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/sf.DbTableApprovalGuide/DbTableApprovalGuide.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <avosScreenflow xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                         xmlns:list="urn:activevos:spi:list:functions"
+                         allowRestart="true"
+                         displayName="DbTableApprovalGuide"
+                         doneOnEndStep="false"
+                         name="DbTableApprovalGuide"
+                         runAsUser="$current">
+            <description/>
+            <appliesTo/>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <tempFields>
+               <field description="" name="tmp_rowSContactDB" type="reference">
+                  <options>
+                     <option name="referenceTo">CN-DB-HR:SCONTACT</option>
+                     <option name="required">false</option>
+                     <option name="guid">dea9S0muYwGhiLGf1DTrWy</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_SContactDBList" type="objectlist">
+                  <options>
+                     <option name="referenceTo">CN-DB-HR:SCONTACT</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="guid">dea9S0muYwGhiLGf1DTrWy</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_SContactPO" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:SCONTACT-PO</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">c72tRrZbQOqidwSrgZzGWc</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_SContactPOList" type="objectlist">
+                  <options>
+                     <option name="referenceTo">$po:SCONTACT-PO</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">c72tRrZbQOqidwSrgZzGWc</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_rowSelectedSContactPO" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:SCONTACT-PO</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">c72tRrZbQOqidwSrgZzGWc</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_rowSelectedSContactDB" type="reference">
+                  <options>
+                     <option name="referenceTo">CN-DB-HR:SCONTACT</option>
+                     <option name="required">false</option>
+                     <option name="guid">dea9S0muYwGhiLGf1DTrWy</option>
+                  </options>
+               </field>
+            </tempFields>
+            <runOn target="desktop"/>
+            <notes/>
+            <deployment/>
+            <sendFeedback>
+               <emailTo/>
+            </sendFeedback>
+            <flow>
+               <startScreen id="jd300kk3">
+                  <title>Start</title>
+                  <body contentType="text/html"/>
+                  <actions>
+                     <action alt="null" id="jd300kk3_k9soogwp" targetScreen="k9soogwp">
+                        <text>Continue</text>
+                     </action>
+                  </actions>
+                  <screenData skipIfRequiredFilled="true"/>
+               </startScreen>
+               <screen id="k9ssg7ym">
+                  <title>Approve Records</title>
+                  <body contentType="text/html">&lt;p&gt;&amp;nbsp;&lt;strong&gt;Please select SContact Table Records for Approval&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp; &lt;input class="" title="tmp_SContactPOList (temporary)" name="temp.tmp_SContactPOList" type="text" value="tmp_SContactPOList (temporary)"&gt;&amp;nbsp;&lt;/p&gt;</body>
+                  <actionPrompt/>
+                  <actions>
+                     <action alt="" id="k9ssg7ym_k9ssg81a" targetScreen="k9ssg81a">
+                        <text>Approve</text>
+                     </action>
+                  </actions>
+                  <screenData skipIfRequiredFilled="false">
+                     <screenDataItem name="temp.tmp_SContactPOList"
+                                     readonly="false"
+                                     renderingType="table"
+                                     required="false"
+                                     type="objectlist">
+                        <options>
+                           <option name="referenceTo">$po:SCONTACT-PO</option>
+                           <option name="display-options">{"display-options":{"columns":{"column":[{"name":"ID","type":"string","label":"ID","renderingType":"string"},{"name":"DEPARTMENT","type":"string","label":"DEPARTMENT","renderingType":"string"},{"name":"ACCOUNTID","type":"string","label":"ACCOUNTID","renderingType":"string"},{"name":"STATUS","type":"string","label":"STATUS","renderingType":"string"}]},"rendering-type":{"table-style":null,"height":null},"allow_pagination":true,"allow_filtering":false,"allow_sorting":true}}</option>
+                           <option hide="true" name="multiSelect">true</option>
+                           <option name="required">false</option>
+                           <option name="isCopy">true</option>
+                           <option name="guid">c72tRrZbQOqidwSrgZzGWc</option>
+                           <option hide="true" name="valuelist.source">objectListField</option>
+                           <option hide="true" name="valuelist.objectlistfield">temp.tmp_SContactPOList</option>
+                        </options>
+                     </screenDataItem>
+                  </screenData>
+               </screen>
+               <endScreen id="jd4cwa59">
+                  <title>End</title>
+                  <body contentType="text/html"/>
+                  <redirectTo type="current_object"/>
+                  <screenActionLabel>
+                     <text/>
+                  </screenActionLabel>
+               </endScreen>
+               <empty gatewayType="exclusive" id="k9ssg7y1">
+                  <actions>
+                     <action alt="" id="k9ssg7y1_k9ssg7ym" targetScreen="k9ssg7ym">
+                        <text>Continue</text>
+                     </action>
+                  </actions>
+               </empty>
+               <empty gatewayType="exclusive" id="k9ssg7zu">
+                  <actions>
+                     <action alt="" id="k9ssg7zu_jd4cwa59" targetScreen="jd4cwa59">
+                        <text>Continue</text>
+                     </action>
+                  </actions>
+               </empty>
+               <jumpTo id="k9ssg7ya" targetTitle="Set each db table row">
+                  <actions>
+                     <action alt="null" id="k9ssg7ya_k9ssg7wt" targetScreen="k9ssg7wt">
+                        <text>Continue</text>
+                     </action>
+                  </actions>
+               </jumpTo>
+               <jumpTo id="k9ssg88x" targetTitle="SetEachSelectedSContactRowPO">
+                  <actions>
+                     <action alt="null" id="k9ssg88x_k9ssg81a" targetScreen="k9ssg81a">
+                        <text>Continue</text>
+                     </action>
+                  </actions>
+               </jumpTo>
+               <dataDecision id="k9ssg7xs">
+                  <title>tmp_SContactDBList</title>
+                  <dataName>temp.tmp_SContactDBList</dataName>
+                  <actions>
+                     <action alt="set" id="k9ssg7xs_k9ssg7ya" targetScreen="k9ssg7ya">
+                        <text>is set</text>
+                     </action>
+                     <action alt="unset" id="k9ssg7xs_k9ssg7y1" targetScreen="k9ssg7y1">
+                        <text>is unset</text>
+                     </action>
+                  </actions>
+               </dataDecision>
+               <dataDecision id="k9ssg7zl">
+                  <title>tmp_Selected_SContactPOList</title>
+                  <dataName>temp.tmp_rowSelectedSContactPO</dataName>
+                  <actions>
+                     <action alt="set" id="k9ssg7zl_k9ssg82j" targetScreen="k9ssg82j">
+                        <text>is set</text>
+                     </action>
+                     <action alt="unset" id="k9ssg7zl_k9ssg7zu" targetScreen="k9ssg7zu">
+                        <text>is unset</text>
+                     </action>
+                  </actions>
+               </dataDecision>
+               <assignment id="k9soogwp">
+                  <title>Query SContact Table</title>
+                  <operation source="list" to="temp.tmp_SContactDBList">
+                     <query advanceQuery="false" from="CN-DB-HR:SCONTACT">
+                        <where>STATUS = 'Not Approved'</where>
+                     </query>
+                  </operation>
+                  <actions>
+                     <action alt="" id="k9soogwp_k9ssg7wt" targetScreen="k9ssg7wt">
+                        <text>Continue</text>
+                     </action>
+                  </actions>
+               </assignment>
+               <assignment id="k9ssg7wt">
+                  <title>Set each db table row</title>
+                  <operation source="formula" to="temp.tmp_rowSContactDB">
+                     <expression language="XQuery">list:head($temp.tmp_SContactDBList )</expression>
+                  </operation>
+                  <operation source="formula" to="temp.tmp_SContactDBList">
+                     <expression language="XQuery">list:tail($temp.tmp_SContactDBList )</expression>
+                  </operation>
+                  <actions>
+                     <action alt="" id="k9ssg7wt_k9ssg7x4" targetScreen="k9ssg7x4">
+                        <text>Continue</text>
+                     </action>
+                  </actions>
+               </assignment>
+               <assignment id="k9ssg7x4">
+                  <title>set SContactPO</title>
+                  <operation source="field" to="temp.tmp_SContactPO[1]/ID">temp.tmp_rowSContactDB.ID</operation>
+                  <operation source="field" to="temp.tmp_SContactPO[1]/DEPARTMENT">temp.tmp_rowSContactDB.DEPARTMENT</operation>
+                  <operation source="field" to="temp.tmp_SContactPO[1]/ACCOUNTID">temp.tmp_rowSContactDB.ACCOUNTID</operation>
+                  <operation source="field" to="temp.tmp_SContactPO[1]/STATUS">temp.tmp_rowSContactDB.STATUS</operation>
+                  <operation source="formula" to="temp.tmp_SContactPOList">
+                     <function name="list:append">
+                        <arg name="dest_field">{$temp.tmp_SContactPOList}</arg>
+                        <arg name="new_field">{$temp.tmp_SContactPO}</arg>
+                     </function>
+                  </operation>
+                  <actions>
+                     <action alt="" id="k9ssg7x4_k9ssg7xs" targetScreen="k9ssg7xs">
+                        <text>Continue</text>
+                     </action>
+                  </actions>
+               </assignment>
+               <assignment id="k9ssg81a">
+                  <title>SetEachSelectedSContactRowPO</title>
+                  <operation source="formula" to="temp.tmp_rowSelectedSContactPO">
+                     <expression language="XQuery">list:head($temp.tmp_SContactPOList )</expression>
+                  </operation>
+                  <operation source="formula" to="temp.tmp_SContactPOList">
+                     <expression language="XQuery">list:tail($temp.tmp_SContactPOList )</expression>
+                  </operation>
+                  <actions>
+                     <action alt="" id="k9ssg81a_k9ssg7zl" targetScreen="k9ssg7zl">
+                        <text>Continue</text>
+                     </action>
+                  </actions>
+               </assignment>
+               <assignment id="k9ssg82j">
+                  <title>QueryForEachSelectedRow</title>
+                  <operation source="query" to="temp.tmp_rowSelectedSContactDB">
+                     <query advanceQuery="false" from="CN-DB-HR:SCONTACT">
+                        <where>ID = '{$temp.tmp_rowSelectedSContactPO[1]/ID}'</where>
+                     </query>
+                  </operation>
+                  <actions>
+                     <action alt="" id="k9ssg82j_k9ssg827" targetScreen="k9ssg827">
+                        <text>Continue</text>
+                     </action>
+                  </actions>
+               </assignment>
+               <assignment id="k9ssg827">
+                  <title>Update SContact DB</title>
+                  <operation source="constant" to="temp.tmp_rowSelectedSContactDB.STATUS">Approved</operation>
+                  <actions>
+                     <action alt="" id="k9ssg827_k9ssg88x" targetScreen="k9ssg88x">
+                        <text>Continue</text>
+                     </action>
+                  </actions>
+               </assignment>
+            </flow>
+         </avosScreenflow>
+      </types1:Entry>
+      <types1:GUID>joSqPLB514Vdh5bjSRflEw</types1:GUID>
+      <types1:DisplayName>DbTableApprovalGuide</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-09-09T12:15:56.722Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

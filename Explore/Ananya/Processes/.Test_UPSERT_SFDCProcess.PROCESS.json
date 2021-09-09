@@ -1,0 +1,44 @@
+{
+  "objectInfo" : {
+    "id" : "d1Mo6QuPeAMd5WMFD3IWwq",
+    "name" : "Test_UPSERT_SFDCProcess",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "Vm5Y6tMFyglsO7R-gt-2477180-2019-11-14T09:49:13.769Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "0VHTKn69r7bcYaljWekgmI",
+    "name" : "OLD-CN-SFDC-SOAP",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "A1qig0zFMi4tciS-gt-2427364-2019-11-14T07:16:43.434Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/Ananya/Connections"
+  } ]
+}

@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "5HxhXpUWA7UfWOdEQ8vpcn",
+    "name" : "ExtractXMLAttribute",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "nHrWLU6S6fPAreF-gt-16213132-2020-08-24T10:19:39.213Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

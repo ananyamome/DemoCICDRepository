@@ -1,0 +1,98 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>gbdutaaabbgdoGs-gt-7961076-2019-11-07T20:25:12.101Z::pd.xml</types1:EntryId>
+      <types1:Name>SubProcess-LookUpContact</types1:Name>
+      <types1:ParentFlowIds>8cmbeMVX3cjk91p-gt-2963025-2019-11-07T11:48:39.959Z::pd.xml,hD0wWcn6Hbf13Er-gt-7960239-2019-11-07T20:23:49.121Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo>CN-POC-Salesforce:Contact</types1:AppliesTo>
+      <types1:Tags>.anonymous</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>anchoudhury@informatica.com</types1:CreatedBy>
+      <types1:CreationDate>2019-11-07T20:25:12Z</types1:CreationDate>
+      <types1:ModifiedBy>anchoudhury@informatica.com</types1:ModifiedBy>
+      <types1:ModificationDate>2019-11-11T20:10:07Z</types1:ModificationDate>
+      <types1:PublicationStatus>out-of-date</types1:PublicationStatus>
+      <types1:PublishedBy>anchoudhury@informatica.com</types1:PublishedBy>
+      <types1:PublicationDate>2019-11-11T20:19:20Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.SubProcess-LookUpContact/SubProcess-LookUpContact.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="SubProcess-LookUpContact"
+                  name="SubProcess-LookUpContact">
+            <appliesTo>CN-POC-Salesforce:Contact</appliesTo>
+            <description/>
+            <tags>.anonymous</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="input_accountName" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <output>
+               <field description="" name="output_IDPOList" type="objectlist">
+                  <options>
+                     <option name="referenceTo">$po:ID-PO</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">ayFsfVL6PKrgIPd3QPUtWl</option>
+                  </options>
+               </field>
+               <field description="" name="output_contactPO" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:POC-ContactPO</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">5rwv10CwQ8Yi9cPKQlG0Km</option>
+                  </options>
+               </field>
+            </output>
+            <tempFields>
+               <field description="" name="temp_ContactObjectList" type="objectlist">
+                  <options>
+                     <option name="referenceTo">CN-POC-Salesforce:Contact</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="guid">a4GJYT4eq97emON2YTAR6b</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowAnonymousAccess/>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="k2uuelww" targetId="k2p5tdxf"/>
+               </start>
+               <assignment id="k2p5tdxf">
+                  <title>Assignment to output_contactPO</title>
+                  <operation source="formula" to="output.output_contactPO">
+                     <expression language="XQuery">&lt;POC-ContactPO&gt;
+   &lt;AccountName&gt;{$input.input_accountName  }&lt;/AccountName&gt;
+   &lt;Name&gt;{$Name}&lt;/Name&gt;
+   &lt;MailingAddress&gt;{$MailingCity/text() }&lt;/MailingAddress&gt;
+   &lt;Languages&gt;{$Languages__c/text()} &lt;/Languages&gt;
+&lt;/POC-ContactPO&gt;</expression>
+                  </operation>
+                  <link id="k2p5tdxh" targetId="c"/>
+               </assignment>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>f5vdP04H88wj1dlmQGqAq3</types1:GUID>
+      <types1:DisplayName>SubProcess-LookUpContact</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-09-09T12:15:56.632Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

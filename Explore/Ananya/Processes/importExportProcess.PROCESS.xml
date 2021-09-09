@@ -1,34 +1,32 @@
 <aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
                    xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
    <types1:Item>
-      <types1:EntryId>ssWOVGuDoWn2sqe-gt-31990364-2021-09-09T12:09:23.304Z::pd.xml</types1:EntryId>
-      <types1:Name>FolderTest1</types1:Name>
+      <types1:EntryId>MUvIw8jIw8jIw8j-gt-517211-2019-04-08T06:50:25.622Z::pd.xml</types1:EntryId>
+      <types1:Name>importExportProcess</types1:Name>
       <types1:MimeType>application/xml+process</types1:MimeType>
       <types1:Description/>
       <types1:AppliesTo/>
-      <types1:Tags>.anonymous</types1:Tags>
+      <types1:Tags>.agent:Ananya_Agent,.anonymous</types1:Tags>
       <types1:VersionLabel>1.0</types1:VersionLabel>
       <types1:State>CURRENT</types1:State>
       <types1:ProcessGroup/>
       <types1:CreatedBy>anchoudhury@informatica.com</types1:CreatedBy>
-      <types1:CreationDate>2021-09-09T12:09:23Z</types1:CreationDate>
+      <types1:CreationDate>2019-04-08T06:50:26Z</types1:CreationDate>
       <types1:ModifiedBy/>
       <types1:PublicationStatus>unpublished</types1:PublicationStatus>
       <types1:AutosaveExists>false</types1:AutosaveExists>
       <types1:Entry>
          <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
-                  xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
                   xmlns:list="urn:activevos:spi:list:functions"
-                  displayName="FolderTest1"
-                  name="FolderTest1"
-                  overrideAPIName="false">
-            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+                  displayName="importExportProcess"
+                  name="importExportProcess">
             <appliesTo/>
             <description/>
-            <tags>.anonymous</tags>
+            <tags>.agent:Ananya_Agent,.anonymous</tags>
             <generator>Informatica Process Designer 11</generator>
             <notes/>
             <deployment suspendOnFault="false" tracingLevel="none">
+               <targetLocation>Ananya_Agent</targetLocation>
                <rest>
                   <allowAnonymousAccess/>
                </rest>
@@ -41,8 +39,8 @@
             </flow>
          </process>
       </types1:Entry>
-      <types1:GUID>2lI3jUq2EEgkE9m0R6DDaR</types1:GUID>
-      <types1:DisplayName>FolderTest1</types1:DisplayName>
+      <types1:GUID>3jmTHZlZSoIbeecpnPxo2b</types1:GUID>
+      <types1:DisplayName>importExportProcess</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2021-09-09T12:15:56.505Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2021-09-09T12:15:56.474Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>

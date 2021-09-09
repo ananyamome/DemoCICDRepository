@@ -1,0 +1,157 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>fT6sFsdsFsdsFsd-gt-16632212-2020-06-19T12:57:06.08Z::pd.xml</types1:EntryId>
+      <types1:Name>ConvertToJSON</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.anonymous</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>anchoudhury@informatica.com</types1:CreatedBy>
+      <types1:CreationDate>2020-06-19T12:57:06Z</types1:CreationDate>
+      <types1:ModifiedBy>anchoudhury@informatica.com</types1:ModifiedBy>
+      <types1:ModificationDate>2020-06-23T05:50:50Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>anchoudhury@informatica.com</types1:PublishedBy>
+      <types1:PublicationDate>2020-06-23T05:50:54Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.ConvertToJSON/ConvertToJSON.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="ConvertToJSON"
+                  name="ConvertToJSON"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description/>
+            <tags>.anonymous</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <output>
+               <field description="" name="OutPut_PayLoadJson" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </output>
+            <tempFields>
+               <field description="" name="tmp_payLoad" type="xml">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="guid"/>
+                  </options>
+               </field>
+               <field description="" name="tmp_PayLoadJson" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowAnonymousAccess/>
+                  <wholePayload outputWholePayload="true"/>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="kbm7rv3l" targetId="kbm7rv3k"/>
+               </start>
+               <assignment id="kbm7rv3k">
+                  <title>Assignment to tmp_payLoad</title>
+                  <operation source="formula" to="temp.tmp_payLoad">
+                     <expression language="XQuery">let $payLoad :='
+      &lt;WorkdayOpportunityPO-JSON&gt;
+         &lt;customerContractLine&gt;
+            &lt;id&gt;Receivable_Contract_Line_Reference_ID=SCOLI_1&lt;/id&gt;
+         &lt;/customerContractLine&gt;
+         &lt;opportunityName&gt;4063371&lt;/opportunityName&gt;
+         &lt;originalOpportunity2&gt;4015150&lt;/originalOpportunity2&gt;
+         &lt;originalCommitmentOpportunity/&gt;
+         &lt;closeDate&gt;2019-09-18&lt;/closeDate&gt;
+         &lt;revenueClassification&gt;Standard&lt;/revenueClassification&gt;
+         &lt;contractType&gt;Single Study&lt;/contractType&gt;
+         &lt;phase2&gt;PMS&lt;/phase2&gt;
+         &lt;therapeuticArea&gt;Oncology&lt;/therapeuticArea&gt;
+         &lt;opportunitySalesforceId&gt;0061P00000SSEl3QAH&lt;/opportunitySalesforceId&gt;
+         &lt;partnerReference&gt;PARTNER REF#&lt;/partnerReference&gt;
+         &lt;studyProtocol2&gt;PROTOCOL-NA&lt;/studyProtocol2&gt;
+         &lt;originalMinimumSpendCommitment/&gt;
+         &lt;primarySalesRep&gt;Yoshinori Shimada&lt;/primarySalesRep&gt;
+         &lt;primaryRepManager&gt;Takeru Yamamoto&lt;/primaryRepManager&gt;
+      &lt;/WorkdayOpportunityPO-JSON&gt;
+      '
+ 
+ return 
+ 
+ util:parseXML($payLoad)</expression>
+                  </operation>
+                  <link id="kbm7rv3w" targetId="kbm7rv3v"/>
+               </assignment>
+               <assignment id="kbm7rv3v">
+                  <title>Assignment to OutPut_PayLoadJson, tmp_PayLoadJson</title>
+                  <operation source="formula" to="temp.tmp_PayLoadJson">
+                     <expression language="XQuery">let $payLoad := $temp.tmp_payLoad 
+return util:toJSON($payLoad/element())</expression>
+                  </operation>
+                  <operation source="formula" to="output.OutPut_PayLoadJson">
+                     <expression language="XQuery">fn:concat($output.OutPut_PayLoadJson , $temp.tmp_PayLoadJson,',' )</expression>
+                  </operation>
+                  <link id="kbrhq6bv" targetId="kbrhq6bu"/>
+               </assignment>
+               <assignment id="kbrhq6bu">
+                  <title>Assignment to tmp_payLoad</title>
+                  <operation source="formula" to="temp.tmp_payLoad">
+                     <expression language="XQuery">let $payLoad :='
+	
+      &lt;WorkdayOpportunityPO-JSON&gt;
+         &lt;customerContractLine&gt;
+            &lt;id&gt;Receivable_Contract_Line_Reference_ID=SCOLI_2&lt;/id&gt;
+         &lt;/customerContractLine&gt;
+         &lt;opportunityName&gt;4063371&lt;/opportunityName&gt;
+         &lt;originalOpportunity2&gt;4015150&lt;/originalOpportunity2&gt;
+         &lt;originalCommitmentOpportunity/&gt;
+         &lt;closeDate&gt;2019-09-18&lt;/closeDate&gt;
+         &lt;revenueClassification&gt;Standard&lt;/revenueClassification&gt;
+         &lt;contractType&gt;Single Study&lt;/contractType&gt;
+         &lt;phase2&gt;PMS&lt;/phase2&gt;
+         &lt;therapeuticArea&gt;Oncology&lt;/therapeuticArea&gt;
+         &lt;opportunitySalesforceId&gt;0061P00000SSEl3QAH&lt;/opportunitySalesforceId&gt;
+         &lt;partnerReference&gt;PARTNER REF#&lt;/partnerReference&gt;
+         &lt;studyProtocol2&gt;PROTOCOL-NA&lt;/studyProtocol2&gt;
+         &lt;originalMinimumSpendCommitment/&gt;
+         &lt;primarySalesRep&gt;Yoshinori Shimada&lt;/primarySalesRep&gt;
+         &lt;primaryRepManager&gt;Takeru Yamamoto&lt;/primaryRepManager&gt;
+      &lt;/WorkdayOpportunityPO-JSON&gt;'
+
+
+ 
+ return 
+ 
+ util:parseXML($payLoad)</expression>
+                  </operation>
+                  <link id="kbrhq6cd" targetId="kbrhq6cc"/>
+               </assignment>
+               <assignment id="kbrhq6cc">
+                  <title>Assignment to tmp_PayLoadJson, OutPut_PayLoadJson</title>
+                  <operation source="formula" to="temp.tmp_PayLoadJson">
+                     <expression language="XQuery">let $payLoad := $temp.tmp_payLoad 
+return util:toJSON($payLoad/element())</expression>
+                  </operation>
+                  <operation source="formula" to="output.OutPut_PayLoadJson">
+                     <expression language="XQuery">fn:concat($output.OutPut_PayLoadJson , $temp.tmp_PayLoadJson)</expression>
+                  </operation>
+                  <link id="kbrhq6ce" targetId="c"/>
+               </assignment>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>6ln3sOH5bJXdVLcQAbNusT</types1:GUID>
+      <types1:DisplayName>ConvertToJSON</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-09-09T12:15:56.52Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

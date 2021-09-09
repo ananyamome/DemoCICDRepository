@@ -101,5 +101,5 @@ return $formattedPreviousDay</expression>
       <types1:GUID>8lhpmjIsCLIidGLHKxLYCW</types1:GUID>
       <types1:DisplayName>testDate</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2021-09-03T14:38:06.463Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2021-09-09T12:15:56.667Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>

@@ -1,0 +1,117 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>cjk91pqrzYLnzYL-gt-516783-2019-04-08T06:46:11.038Z::pd.xml</types1:EntryId>
+      <types1:Name>ReadFileFromSecureAgent</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:INW2PC04KMW9</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>anchoudhury@informatica.com</types1:CreatedBy>
+      <types1:CreationDate>2019-04-08T06:46:11Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="ReadFileFromSecureAgent"
+                  name="ReadFileFromSecureAgent">
+            <appliesTo/>
+            <description/>
+            <tags>.agent:INW2PC04KMW9</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="input_File" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <output>
+               <field description="" name="output_FileContent" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="output_FileExists" type="boolean">
+                  <options>
+                     <option name="defaultvalue">false</option>
+                     <option name="boolean_show_as">checkbox</option>
+                     <option name="required">false</option>
+                     <option name="guid"/>
+                  </options>
+               </field>
+            </output>
+            <tempFields>
+               <field description="" name="FilePathExists" type="boolean">
+                  <options>
+                     <option name="defaultvalue">false</option>
+                     <option name="boolean_show_as">checkbox</option>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>INW2PC04KMW9</targetLocation>
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="jtsha77w" targetId="jtsha77v"/>
+               </start>
+               <assignment id="jtsha77v">
+                  <title>VerifyIfFileExists</title>
+                  <operation source="formula" to="temp.FilePathExists">
+                     <expression language="XQuery">fn:unparsed-text-available($input.input_File )</expression>
+                  </operation>
+                  <link id="jtsha783" targetId="jtsha782"/>
+               </assignment>
+               <container id="jtsha782" type="exclusive">
+                  <title>FilePathExists?</title>
+                  <flow id="jtsha78c">
+                     <assignment id="jtsha796">
+                        <title>Assignment to output_FileContent, output_FileExists</title>
+                        <operation source="formula" to="output.output_FileContent">
+                           <expression language="XQuery">fn:unparsed-text($input.input_File)</expression>
+                        </operation>
+                        <operation source="constant" to="output.output_FileExists">true</operation>
+                     </assignment>
+                     <link id="jtsha78d" targetId="jtsha782" type="containerLink"/>
+                  </flow>
+                  <flow id="jtsha78e">
+                     <assignment id="ju0tqzji">
+                        <title>Assignment to output_FileContent</title>
+                        <operation source="constant" to="output.output_FileContent">ERROR: File does not exist</operation>
+                     </assignment>
+                     <link id="jtsha78f" targetId="jtsha782" type="containerLink"/>
+                  </flow>
+                  <link id="jtsha785" targetId="jtsha78c" type="containerLink">
+                     <condition source="formula">
+                        <function name="true">
+                           <arg name="field">{$temp.FilePathExists}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jtsha788" targetId="jtsha78e" type="containerLink">
+                     <condition source="formula">
+                        <function name="false">
+                           <arg name="field">{$temp.FilePathExists}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jtsha784" targetId="c"/>
+               </container>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>2TPdkPNXVQQe6dgmsUtxuW</types1:GUID>
+      <types1:DisplayName>ReadFileFromSecureAgent</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-09-09T12:15:56.693Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "2TPdkPNXVQQe6dgmsUtxuW",
+    "name" : "ReadFileFromSecureAgent",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "cjk91pqrzYLnzYL-gt-516783-2019-04-08T06:46:11.038Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

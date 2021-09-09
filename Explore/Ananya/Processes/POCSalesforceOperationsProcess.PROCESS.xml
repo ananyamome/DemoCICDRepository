@@ -1,0 +1,173 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>8cmbeMVX3cjk91p-gt-2963025-2019-11-07T11:48:39.959Z::pd.xml</types1:EntryId>
+      <types1:Name>POCSalesforceOperationsProcess</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo>CN-POC-Salesforce:Account</types1:AppliesTo>
+      <types1:Tags>.anonymous</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>anchoudhury@informatica.com</types1:CreatedBy>
+      <types1:CreationDate>2019-11-07T11:48:40Z</types1:CreationDate>
+      <types1:ModifiedBy>anchoudhury@informatica.com</types1:ModifiedBy>
+      <types1:ModificationDate>2019-11-11T20:19:08Z</types1:ModificationDate>
+      <types1:PublicationStatus>out-of-date</types1:PublicationStatus>
+      <types1:PublishedBy>anchoudhury@informatica.com</types1:PublishedBy>
+      <types1:PublicationDate>2019-11-11T20:19:20Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.POCSalesforceOperationsProcess/POCSalesforceOperationsProcess.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="POCSalesforceOperationsProcess"
+                  name="POCSalesforceOperationsProcess">
+            <appliesTo>CN-POC-Salesforce:Account</appliesTo>
+            <description/>
+            <tags>.anonymous</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <tempFields>
+               <field description="" name="temp_contactPOList" type="objectlist">
+                  <options>
+                     <option name="referenceTo">CN-POC-Salesforce:Contact</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="guid">a4GJYT4eq97emON2YTAR6b</option>
+                  </options>
+               </field>
+               <field description="" name="temp_oplist" type="objectlist">
+                  <options>
+                     <option name="referenceTo">$po:POC-ContactPO</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">5rwv10CwQ8Yi9cPKQlG0Km</option>
+                  </options>
+               </field>
+               <field description="" name="tempSFDCContactIDPOList" type="objectlist">
+                  <options>
+                     <option name="referenceTo">CN-POC-Salesforce:Contact</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="guid">a4GJYT4eq97emON2YTAR6b</option>
+                  </options>
+               </field>
+               <field description="" name="tempCurrentSFDCContactIDPO" type="reference">
+                  <options>
+                     <option name="referenceTo">CN-POC-Salesforce:Contact</option>
+                     <option name="required">false</option>
+                     <option name="guid">a4GJYT4eq97emON2YTAR6b</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowAnonymousAccess/>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="k2ondq5d" targetId="k2ondq5c"/>
+               </start>
+               <assignment id="k2ondq5c">
+                  <title>Assignment to tempSFDCContactPOList</title>
+                  <operation source="list" to="temp.tempSFDCContactIDPOList">
+                     <query from="CN-POC-Salesforce:Contact">
+                        <where>AccountId = '{$Id}'</where>
+                     </query>
+                  </operation>
+                  <link id="k2utr2fs" targetId="k2p4mckz"/>
+               </assignment>
+               <container id="k2p4mckz" type="exclusive">
+                  <title>ContactPOList</title>
+                  <flow id="k2p4mcl3">
+                     <assignment id="k2utr2d8">
+                        <title>Assignment to tempCurrentSFDCContactIDPO</title>
+                        <operation source="formula" to="temp.tempCurrentSFDCContactIDPO">
+                           <expression language="XQuery">list:head($temp.tempSFDCContactIDPOList )</expression>
+                        </operation>
+                        <link id="k2utr2d9" targetId="k2utr26z"/>
+                     </assignment>
+                     <assignment id="k2utr2ek">
+                        <title>Assignment to tempSFDCContactIDPOList</title>
+                        <operation source="formula" to="temp.tempSFDCContactIDPOList">
+                           <expression language="XQuery">list:tail($temp.tempSFDCContactIDPOList )</expression>
+                        </operation>
+                        <link id="k2utr2em" targetId="k2pvuvab"/>
+                     </assignment>
+                     <assignment id="k2pvuvab">
+                        <title>Assignment to temp_oplist</title>
+                        <operation source="formula" to="temp.temp_oplist">
+                           <function name="list:append">
+                              <arg name="dest_field">{$temp.temp_oplist}</arg>
+                              <arg name="new_field">{$output.output_contactPO}</arg>
+                           </function>
+                        </operation>
+                        <link id="k2utr2c6" targetId="k2utr2c4"/>
+                     </assignment>
+                     <subflow id="k2utr26z">
+                        <title>SubProcess-LookUpContact</title>
+                        <subflowGUID>f5vdP04H88wj1dlmQGqAq3</subflowGUID>
+                        <subflowPath>SubProcess-LookUpContact</subflowPath>
+                        <appliesTo>CN-POC-Salesforce:Contact</appliesTo>
+                        <appliesToDataName source="field">temp.tempCurrentSFDCContactIDPO</appliesToDataName>
+                        <runForEach>false</runForEach>
+                        <input>
+                           <parameter name="input_accountName" source="field" updatable="true">Name</parameter>
+                        </input>
+                        <outputDef>
+                           <field name="output_IDPOList" type="objectlist">
+                              <options>
+                                 <option name="referenceTo">$po:ID-PO</option>
+                                 <option hide="true" name="multiSelect">true</option>
+                                 <option name="required">false</option>
+                                 <option name="isCopy">true</option>
+                                 <option name="guid">ayFsfVL6PKrgIPd3QPUtWl</option>
+                              </options>
+                           </field>
+                           <field name="output_contactPO" type="reference">
+                              <options>
+                                 <option name="referenceTo">$po:POC-ContactPO</option>
+                                 <option name="required">false</option>
+                                 <option name="isCopy">true</option>
+                                 <option name="guid">5rwv10CwQ8Yi9cPKQlG0Km</option>
+                              </options>
+                           </field>
+                        </outputDef>
+                        <link id="k2utr2el" targetId="k2utr2ek"/>
+                     </subflow>
+                     <jumpTo id="k2utr2c4">
+                        <link id="k2utr2c5" targetId="k2p4mckz"/>
+                     </jumpTo>
+                  </flow>
+                  <flow id="k2p4mcl6">
+                     <link id="k2p4mcl7" targetId="k2p4mckz" type="containerLink"/>
+                  </flow>
+                  <link id="k2p4mcl2" targetId="k2p4mcl3" type="containerLink">
+                     <condition source="formula">
+                        <function name="not-empty">
+                           <arg name="field">{$temp.tempSFDCContactIDPOList}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="k2p4mcl5" targetId="k2p4mcl6" type="containerLink">
+                     <condition source="formula">
+                        <function name="empty">
+                           <arg name="field">{$temp.tempSFDCContactIDPOList}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="k2p4mcl1" targetId="c"/>
+               </container>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>4RuDyXQN7zffwSGfPcn7uM</types1:GUID>
+      <types1:DisplayName>POCSalesforceOperationsProcess</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-09-09T12:15:56.847Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

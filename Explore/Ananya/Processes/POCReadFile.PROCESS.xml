@@ -1,0 +1,151 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>oY2G7QnG5YLnzYL-gt-16953389-2020-01-08T06:09:32.412Z::pd.xml</types1:EntryId>
+      <types1:Name>POCReadFile</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:Ananya_Agent,.anonymous</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>anchoudhury@informatica.com</types1:CreatedBy>
+      <types1:CreationDate>2020-01-08T06:09:32Z</types1:CreationDate>
+      <types1:ModifiedBy>anchoudhury@informatica.com</types1:ModifiedBy>
+      <types1:ModificationDate>2020-11-18T16:00:51Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>anchoudhury@informatica.com</types1:PublishedBy>
+      <types1:PublicationDate>2020-11-18T16:00:58Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.POCReadFile/POCReadFile.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="POCReadFile"
+                  name="POCReadFile"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description/>
+            <tags>.agent:Ananya_Agent,.anonymous</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <output>
+               <field description="" name="output_FileContent" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="row_count" type="int">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="row_count1" type="int">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </output>
+            <tempFields>
+               <field description="" name="FilePathExists" type="boolean">
+                  <options>
+                     <option name="defaultvalue">false</option>
+                     <option name="boolean_show_as">checkbox</option>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="InputFile" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_File" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>Ananya_Agent</targetLocation>
+               <rest>
+                  <allowAnonymousAccess/>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="k54wka20" targetId="k54wka1z"/>
+               </start>
+               <assignment id="k54wka1z">
+                  <title>Assignment to InputFile</title>
+                  <operation source="constant" to="temp.InputFile">file:////C:\Ananya\ICM Files\result.csv</operation>
+                  <link id="k54wka21" targetId="k54wk9zm"/>
+               </assignment>
+               <assignment id="k54wk9zm">
+                  <title>Verify File Exists</title>
+                  <operation source="formula" to="temp.tmp_File">
+                     <expression language="XQuery">if(fn:contains($temp.InputFile , '\'))then
+fn:replace($temp.InputFile, '\\', '/')
+else
+$temp.InputFile</expression>
+                  </operation>
+                  <operation source="formula" to="temp.FilePathExists">
+                     <expression language="XQuery">fn:unparsed-text-available($temp.tmp_File )</expression>
+                  </operation>
+                  <operation source="formula" to="output.row_count">
+                     <expression language="XQuery">let $removeLastCR:=fn:replace(fn:unparsed-text($temp.tmp_File ) , '(\r?\n|\r)$', '')
+
+let $lines := tokenize($removeLastCR, '\n')
+
+return fn:count($lines)
+
+</expression>
+                  </operation>
+                  <operation source="formula" to="output.row_count1">
+                     <expression language="XQuery">fn:count(fn:tokenize(fn:unparsed-text($temp.tmp_File ), '\r\n|\r|\n')[not(position()=last() and .='')])</expression>
+                  </operation>
+                  <link id="k54wk9zv" targetId="k54wk9zu"/>
+               </assignment>
+               <container id="k54wk9zu" type="exclusive">
+                  <title>FilePathExists?</title>
+                  <flow id="k54wk9zy">
+                     <assignment id="k54wka0h">
+                        <title>Assignment to output_FileContent</title>
+                        <operation source="formula" to="output.output_FileContent">
+                           <expression language="XQuery">fn:unparsed-text($temp.tmp_File )</expression>
+                        </operation>
+                     </assignment>
+                     <link id="k54wk9zz" targetId="k54wk9zu" type="containerLink"/>
+                  </flow>
+                  <flow id="k54wka01">
+                     <assignment id="k54wka12">
+                        <title>Assignment to output_FileContent</title>
+                        <operation source="constant" to="output.output_FileContent">ERROR: File does not exist</operation>
+                     </assignment>
+                     <link id="k54wka02" targetId="k54wk9zu" type="containerLink"/>
+                  </flow>
+                  <link id="k54wk9zx" targetId="k54wk9zy" type="containerLink">
+                     <condition source="formula">
+                        <function name="true">
+                           <arg name="field">{$temp.FilePathExists}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="k54wka00" targetId="k54wka01" type="containerLink">
+                     <condition source="formula">
+                        <function name="false">
+                           <arg name="field">{$temp.FilePathExists}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="k54wk9zw" targetId="c"/>
+               </container>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>lYDH2DOjYcbhEPuaFVJp4J</types1:GUID>
+      <types1:DisplayName>POCReadFile</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-09-09T12:15:56.505Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

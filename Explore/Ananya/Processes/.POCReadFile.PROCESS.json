@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "lYDH2DOjYcbhEPuaFVJp4J",
+    "name" : "POCReadFile",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "oY2G7QnG5YLnzYL-gt-16953389-2020-01-08T06:09:32.412Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

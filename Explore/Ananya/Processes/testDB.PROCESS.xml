@@ -1,0 +1,143 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>eH2PKDC0hCHbf2X-gt-5232283-2020-05-04T16:33:24.073Z::pd.xml</types1:EntryId>
+      <types1:Name>testDB</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.anonymous</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>anchoudhury@informatica.com</types1:CreatedBy>
+      <types1:CreationDate>2020-05-04T16:33:24Z</types1:CreationDate>
+      <types1:ModifiedBy>anchoudhury@informatica.com</types1:ModifiedBy>
+      <types1:ModificationDate>2020-05-04T16:59:34Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>anchoudhury@informatica.com</types1:PublishedBy>
+      <types1:PublicationDate>2020-05-04T16:59:44Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.testDB/testDB.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="testDB"
+                  name="testDB"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description/>
+            <tags>.anonymous</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <tempFields>
+               <field description="" name="tmp_scontactList" type="objectlist">
+                  <options>
+                     <option name="referenceTo">CN-DB-HR:SCONTACT</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="guid">dea9S0muYwGhiLGf1DTrWy</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_soncontactPOList" type="objectlist">
+                  <options>
+                     <option name="referenceTo">$po:SCONTACT-PO</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">c72tRrZbQOqidwSrgZzGWc</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_scontactRow" type="reference">
+                  <options>
+                     <option name="referenceTo">CN-DB-HR:SCONTACT</option>
+                     <option name="required">false</option>
+                     <option name="guid">dea9S0muYwGhiLGf1DTrWy</option>
+                  </options>
+               </field>
+               <field description="" name="tmp_soncontactPO" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:SCONTACT-PO</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">c72tRrZbQOqidwSrgZzGWc</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowAnonymousAccess/>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="k9spcwcu" targetId="k9spcwct"/>
+               </start>
+               <assignment id="k9spcwct">
+                  <title>Query tmp_scontact</title>
+                  <operation source="list" to="temp.tmp_scontactList">
+                     <query advanceQuery="false" from="CN-DB-HR:SCONTACT">
+                        <where>STATUS = 'Not Approved'</where>
+                     </query>
+                  </operation>
+                  <link id="k9spnxpm" targetId="k9spnxpl"/>
+               </assignment>
+               <assignment id="k9spnxpl">
+                  <title>Set Each Row</title>
+                  <operation source="formula" to="temp.tmp_scontactRow">
+                     <expression language="XQuery">list:head($temp.tmp_scontactList )</expression>
+                  </operation>
+                  <operation source="formula" to="temp.tmp_scontactList">
+                     <expression language="XQuery">list:tail($temp.tmp_scontactList )</expression>
+                  </operation>
+                  <link id="k9spnxpx" targetId="k9spnxpw"/>
+               </assignment>
+               <assignment id="k9spnxpw">
+                  <title>Set scontactPOList</title>
+                  <operation source="field" to="temp.tmp_soncontactPO[1]/ID">temp.tmp_scontactRow.ID</operation>
+                  <operation source="field" to="temp.tmp_soncontactPO[1]/DEPARTMENT">temp.tmp_scontactRow.DEPARTMENT</operation>
+                  <operation source="field" to="temp.tmp_soncontactPO[1]/ACCOUNTID">temp.tmp_scontactRow.ACCOUNTID</operation>
+                  <operation source="field" to="temp.tmp_soncontactPO[1]/STATUS">temp.tmp_scontactRow.STATUS</operation>
+                  <operation source="formula" to="temp.tmp_soncontactPOList">
+                     <function name="list:append">
+                        <arg name="dest_field">{$temp.tmp_soncontactPOList}</arg>
+                        <arg name="new_field">{$temp.tmp_soncontactPO}</arg>
+                     </function>
+                  </operation>
+                  <link id="k9spnxqx" targetId="k9spnxqw"/>
+               </assignment>
+               <container id="k9spnxqw" type="exclusive">
+                  <title>tmp_scontactList</title>
+                  <flow id="k9spnxr0">
+                     <jumpTo id="k9spnxrt">
+                        <link id="k9spnxru" targetId="k9spnxpl"/>
+                     </jumpTo>
+                  </flow>
+                  <flow id="k9spnxr3">
+                     <link id="k9spnxr4" targetId="k9spnxqw" type="containerLink"/>
+                  </flow>
+                  <link id="k9spnxqz" targetId="k9spnxr0" type="containerLink">
+                     <condition source="formula">
+                        <function name="not-empty">
+                           <arg name="field">{$temp.tmp_scontactList}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="k9spnxry" targetId="c"/>
+                  <link id="k9spnxr2" targetId="k9spnxr3" type="containerLink">
+                     <condition source="formula">
+                        <function name="empty">
+                           <arg name="field">{$temp.tmp_scontactList}</arg>
+                        </function>
+                     </condition>
+                  </link>
+               </container>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>8Fvur8i66uzeUNeTRybYa3</types1:GUID>
+      <types1:DisplayName>testDB</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-09-09T12:15:56.404Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
