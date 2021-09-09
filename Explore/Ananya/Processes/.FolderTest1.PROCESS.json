@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "2lI3jUq2EEgkE9m0R6DDaR",
+    "name" : "FolderTest1",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "ssWOVGuDoWn2sqe-gt-31990364-2021-09-09T12:09:23.304Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}
