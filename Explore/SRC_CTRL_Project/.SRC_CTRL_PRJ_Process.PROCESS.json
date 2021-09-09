@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "4dm2D03p3wYbFUNKYHTJ00",
+    "name" : "SRC_CTRL_PRJ_Process",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "MMP5gjn9OQcjoYs-gt-32041854-2021-09-09T13:04:26.621Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}
