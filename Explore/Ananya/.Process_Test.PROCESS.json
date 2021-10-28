@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "9ZDId4BRkSVkrkwXr8l4MT",
+    "name" : "Process_Test",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "kNXHVOJ2oTVMTon-gt-52884456-2021-10-28T15:23:45.162Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}
