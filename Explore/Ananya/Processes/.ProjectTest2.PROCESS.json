@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "3COk3Ww8zW0jWQs59ea8Wi",
+    "name" : "ProjectTest2",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "1MSPfXBiVGkSSHC-gt-25067590-2021-10-28T15:33:32.846Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : null,
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}
