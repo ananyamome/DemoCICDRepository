@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "7wOkVg1aCe5empVYJP3wyM",
+    "name" : "DemoTestProcess",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "AbcjIw8jIw8jIw8-gt-25102563-2021-10-28T15:59:23.424Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}

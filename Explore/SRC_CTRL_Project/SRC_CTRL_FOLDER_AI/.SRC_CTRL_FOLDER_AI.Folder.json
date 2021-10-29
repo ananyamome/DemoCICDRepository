@@ -1,0 +1,22 @@
+{
+  "objectInfo" : {
+    "id" : "6ATohlU3S9njY9WyN5EI4D",
+    "name" : "SRC_CTRL_FOLDER_AI",
+    "type" : "Folder",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : null,
+      "contextAttributes" : [ ],
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "Binary",
+        "documentState" : "COMPLETE"
+      }
+    }
+  },
+  "dataFileExtension" : "json",
+  "objectRefs" : [ ]
+}
